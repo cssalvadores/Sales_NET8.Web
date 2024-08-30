@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Sales_NET8.Data.Entities;
+
 namespace Sales_NET8
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Sales_NET8
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
 
             var app = builder.Build();
 
